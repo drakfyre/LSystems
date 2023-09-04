@@ -24,16 +24,6 @@ public class TurtleGraphics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //lSystem.lSystemString = "A";
-        //lSystem.replacementStrings.Add('A',"+BF-AFA-FB+");
-        //lSystem.replacementStrings.Add('B',"-AF+BFB+FA-");
-
-        //lSystem.lSystemString = "A";
-        //lSystem.replacementStrings.Add('A',"B-F+CFC+F-D&F^D-F+&&CFC+F+B//");
-        //lSystem.replacementStrings.Add('B',"A&F^CFB^F^D^^-F-D^|F^B|FC^F^A//");
-        //lSystem.replacementStrings.Add('C',"|D^|F^B-F+C^F^A&&FA&F^C+F+B^F^D//");
-        //lSystem.replacementStrings.Add('D',"|CFB-F+B|FA&F^A&&FB-F+B|FC//");
-
         lSystem.lSystemString = lString;
 
         for(int i = 0; i < ruleCharacters.Count; i++)
