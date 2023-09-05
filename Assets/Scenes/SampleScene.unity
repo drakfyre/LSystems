@@ -276,6 +276,9 @@ MonoBehaviour:
   moveSpeed: 5
   rotationAmount: 90
   iterations: 5
+  usePerlinHeight: 0
+  perlinFrequency: 0
+  perlinAmplitude: 0
   lString: A
   ruleCharacters: 4100420043004400
   ruleStrings:
@@ -459,6 +462,9 @@ MonoBehaviour:
   moveSpeed: 1
   rotationAmount: 90
   iterations: 5
+  usePerlinHeight: 0
+  perlinFrequency: 0
+  perlinAmplitude: 0
   lString: A
   ruleCharacters: 41004200
   ruleStrings:
@@ -797,10 +803,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc1ca50e25bee54bbc060e4e89cba1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 1
-  moveSpeed: 1
+  moveDistance: 5
+  moveSpeed: 100
   rotationAmount: 90
   iterations: 7
+  usePerlinHeight: 1
+  perlinFrequency: 0.01
+  perlinAmplitude: 100
   lString: A
   ruleCharacters: 41004200
   ruleStrings:
@@ -857,8 +866,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.004257202
-        value: 0.09183693
+        time: 0
+        value: 0.4976368
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -960,6 +969,9 @@ MonoBehaviour:
   moveSpeed: 100
   rotationAmount: 60
   iterations: 5
+  usePerlinHeight: 1
+  perlinFrequency: 0.01
+  perlinAmplitude: 100
   lString: X
   ruleCharacters: 58005900
   ruleStrings:
@@ -1016,8 +1028,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.004257202
-        value: 0.09183693
+        time: 0
+        value: 0.4976368
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1077,13 +1089,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470424461}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.60876137, z: 0, w: 0.7933534}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 75, z: 0}
 --- !u!114 &1470424465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1180,6 +1192,9 @@ MonoBehaviour:
   moveSpeed: 1
   rotationAmount: 1
   iterations: 360
+  usePerlinHeight: 0
+  perlinFrequency: 0
+  perlinAmplitude: 0
   lString: A
   ruleCharacters: 4100
   ruleStrings:
@@ -1337,6 +1352,9 @@ MonoBehaviour:
   moveSpeed: 1
   rotationAmount: 25.7
   iterations: 8
+  usePerlinHeight: 0
+  perlinFrequency: 0
+  perlinAmplitude: 0
   lString: X
   ruleCharacters: 58004600
   ruleStrings:
