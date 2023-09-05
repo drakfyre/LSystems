@@ -54,6 +54,7 @@ public class TurtleGraphics : MonoBehaviour
                         transform.position = Vector3.MoveTowards(transform.position,targetPosition, moveSpeed * Time.deltaTime);
                         yield return null;
                     }
+                    transform.position = targetPosition;
                     break;
                 case '+':
                     transform.Rotate(0.0f,rotationAmount,0.0f);
