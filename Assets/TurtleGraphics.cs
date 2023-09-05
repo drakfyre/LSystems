@@ -14,6 +14,8 @@ public class TurtleGraphics : MonoBehaviour
     public float perlinFrequency = 1.0f;
     public float perlinAmplitude = 1.0f;
 
+    public TrailRenderer trailRenderer = null;
+
     public string lString;
     public List<char> ruleCharacters = new List<char>();
     public List<string> ruleStrings = new List<string>();
@@ -27,6 +29,14 @@ public class TurtleGraphics : MonoBehaviour
     }
     private Stack<State> stateStack = new Stack<State>();
     private float startingY;
+
+    void OnValidate()
+    {
+        if(trailRenderer == null)
+        {
+            trailRenderer = GetComponent<TrailRenderer>();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -55,12 +65,14 @@ public class TurtleGraphics : MonoBehaviour
     // Update is called once per frame
     IEnumerator Draw()
     {
+        yield return null;
         while(index < lSystem.lSystemString.Length)
         {
             char c = lSystem.lSystemString[index];
             switch(c)
             {
                 case 'F':
+                    trailRenderer.emitting = true;
                     Vector3 targetPosition = transform.position + transform.forward * moveDistance;
                     if(usePerlinHeight)
                     {
@@ -111,9 +123,11 @@ public class TurtleGraphics : MonoBehaviour
                 }
                 case ']':
                 {
+                    trailRenderer.emitting = false;
                     State newState = stateStack.Pop();
                     transform.position = newState.position;
                     transform.rotation = newState.rotation;
+                    yield return null;
                     break;
                 }
                 default:

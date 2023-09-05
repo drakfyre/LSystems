@@ -273,12 +273,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 1
-  moveSpeed: 5
+  moveSpeed: 10
   rotationAmount: 90
   iterations: 5
   usePerlinHeight: 0
   perlinFrequency: 0
   perlinAmplitude: 0
+  trailRenderer: {fileID: 148852885}
   lString: A
   ruleCharacters: 4100420043004400
   ruleStrings:
@@ -465,6 +466,7 @@ MonoBehaviour:
   usePerlinHeight: 0
   perlinFrequency: 0
   perlinAmplitude: 0
+  trailRenderer: {fileID: 895898791}
   lString: A
   ruleCharacters: 41004200
   ruleStrings:
@@ -810,6 +812,7 @@ MonoBehaviour:
   usePerlinHeight: 1
   perlinFrequency: 0.01
   perlinAmplitude: 100
+  trailRenderer: {fileID: 1379621512}
   lString: A
   ruleCharacters: 41004200
   ruleStrings:
@@ -917,7 +920,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
   m_Autodestruct: 0
-  m_Emitting: 1
+  m_Emitting: 0
   m_ApplyActiveColorSpace: 1
 --- !u!4 &1379621513
 Transform:
@@ -972,6 +975,7 @@ MonoBehaviour:
   usePerlinHeight: 1
   perlinFrequency: 0.01
   perlinAmplitude: 100
+  trailRenderer: {fileID: 1470424463}
   lString: X
   ruleCharacters: 58005900
   ruleStrings:
@@ -1079,7 +1083,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
   m_Autodestruct: 0
-  m_Emitting: 1
+  m_Emitting: 0
   m_ApplyActiveColorSpace: 1
 --- !u!4 &1470424464
 Transform:
@@ -1195,6 +1199,7 @@ MonoBehaviour:
   usePerlinHeight: 0
   perlinFrequency: 0
   perlinAmplitude: 0
+  trailRenderer: {fileID: 1616074941}
   lString: A
   ruleCharacters: 4100
   ruleStrings:
@@ -1349,12 +1354,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDistance: 1
-  moveSpeed: 1
+  moveSpeed: 100
   rotationAmount: 25.7
   iterations: 8
   usePerlinHeight: 0
   perlinFrequency: 0
   perlinAmplitude: 0
+  trailRenderer: {fileID: 1928498147}
   lString: X
   ruleCharacters: 58004600
   ruleStrings:
