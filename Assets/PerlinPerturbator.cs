@@ -10,7 +10,7 @@ public class PerlinPerturbator : MonoBehaviour
     void LateUpdate()
     {
         Vector3 newPosition = transform.position;
-        newPosition.y = Mathf.PerlinNoise(transform.position.x * frequency + x, transform.position.z * frequency + y) * amplitude;
+        newPosition.y = Mathf.PerlinNoise(transform.position.x * frequency, transform.position.z * frequency) * amplitude;
         transform.position = newPosition;
     }
 }
