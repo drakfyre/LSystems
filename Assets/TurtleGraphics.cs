@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TurtleGraphics : MonoBehaviour
 {
-    public float moveDistance = 0.1f;
+    public float moveDistance = 1.0f;
+    public float moveSpeed = 1.0f;
     public float rotationAmount = 90.0f;
     public int iterations = 5;
 
@@ -47,8 +48,12 @@ public class TurtleGraphics : MonoBehaviour
             switch(c)
             {
                 case 'F':
-                    transform.position += transform.forward * moveDistance;
-                    yield return null;
+                    Vector3 targetPosition = transform.position + transform.forward * moveDistance;
+                    while(Vector3.Distance(transform.position, targetPosition) > 0.1f)
+                    {
+                        transform.position = Vector3.MoveTowards(transform.position,targetPosition, moveSpeed * Time.deltaTime);
+                        yield return null;
+                    }
                     break;
                 case '+':
                     transform.Rotate(0.0f,rotationAmount,0.0f);
