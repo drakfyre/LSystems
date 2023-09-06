@@ -282,6 +282,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 148852885}
   lString: A
   lSuffix: 
+  timeOutInSeconds: 100
   ruleCharacters: 4100420043004400
   ruleStrings:
   - B-F+CFC+F-D&F^D-F+&&CFC+F+B//
@@ -343,6 +344,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 422789129}
   lString: X
   lSuffix: --F
+  timeOutInSeconds: -1
   ruleCharacters: 58005900
   ruleStrings:
   - X+YF++YF-FX--FXFX-YF+
@@ -740,6 +742,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 895898791}
   lString: A
   lSuffix: 
+  timeOutInSeconds: 100
   ruleCharacters: 41004200
   ruleStrings:
   - +BF-AFA-FB+
@@ -1087,6 +1090,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 1379621512}
   lString: A
   lSuffix: 
+  timeOutInSeconds: 100
   ruleCharacters: 41004200
   ruleStrings:
   - +BF-AFA-FB+
@@ -1251,6 +1255,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 1470424463}
   lString: X
   lSuffix: --F
+  timeOutInSeconds: -1
   ruleCharacters: 58005900
   ruleStrings:
   - X+YF++YF-FX--FXFX-YF+
@@ -1476,6 +1481,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 1616074941}
   lString: A
   lSuffix: 
+  timeOutInSeconds: 100
   ruleCharacters: 4100
   ruleStrings:
   - F+A
@@ -1653,6 +1659,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 1664163601}
   lString: X
   lSuffix: --F
+  timeOutInSeconds: -1
   ruleCharacters: 58005900
   ruleStrings:
   - X+YF++YF-FX--FXFX-YF+
@@ -1816,6 +1823,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 1928498147}
   lString: X
   lSuffix: 
+  timeOutInSeconds: 100
   ruleCharacters: 58004600
   ruleStrings:
   - F[++X][-X]FX

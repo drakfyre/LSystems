@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class TurtleGraphics : MonoBehaviour
 
     public string lString;
     public string lSuffix;
+    public float timeOutInSeconds = 100.0f;
     public List<char> ruleCharacters = new List<char>();
     public List<string> ruleStrings = new List<string>();
 
@@ -51,15 +53,20 @@ public class TurtleGraphics : MonoBehaviour
             transform.position = newPosition;
         }
 
-
         lSystem.lSystemString = lString;
         for(int i = 0; i < ruleCharacters.Count; i++)
         {
             lSystem.replacementStrings.Add(ruleCharacters[i],ruleStrings[i]);
         }
-        lSystem.Iterate(iterations);
+
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
+        lSystem.Iterate(iterations,timeOutInSeconds);
+        stopwatch.Stop();
+        UnityEngine.Debug.Log(string.Format("Generation took {0} seconds to complete", stopwatch.Elapsed.TotalSeconds));
+
         lSystem.lSystemString += lSuffix;
-        Debug.Log(lSystem.lSystemString);
+        //UnityEngine.Debug.Log(lSystem.lSystemString);
 
         StartCoroutine(Draw());
     }
