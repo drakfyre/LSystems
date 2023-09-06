@@ -281,6 +281,7 @@ MonoBehaviour:
   perlinAmplitude: 0
   trailRenderer: {fileID: 148852885}
   lString: A
+  lSuffix: 
   ruleCharacters: 4100420043004400
   ruleStrings:
   - B-F+CFC+F-D&F^D-F+&&CFC+F+B//
@@ -341,6 +342,7 @@ MonoBehaviour:
   perlinAmplitude: 100
   trailRenderer: {fileID: 422789129}
   lString: X
+  lSuffix: --F
   ruleCharacters: 58005900
   ruleStrings:
   - X+YF++YF-FX--FXFX-YF+
@@ -457,8 +459,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422789126}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.9914449, z: 0, w: 0.13052626}
-  m_LocalPosition: {x: 605.7368, y: 0, z: -232.18887}
+  m_LocalRotation: {x: 0, y: -0.9914449, z: 0, w: 0.13052621}
+  m_LocalPosition: {x: 600.90686, y: 0, z: -233.48303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -737,6 +739,7 @@ MonoBehaviour:
   perlinAmplitude: 0
   trailRenderer: {fileID: 895898791}
   lString: A
+  lSuffix: 
   ruleCharacters: 41004200
   ruleStrings:
   - +BF-AFA-FB+
@@ -1083,6 +1086,7 @@ MonoBehaviour:
   perlinAmplitude: 100
   trailRenderer: {fileID: 1379621512}
   lString: A
+  lSuffix: 
   ruleCharacters: 41004200
   ruleStrings:
   - +BF-AFA-FB+
@@ -1246,6 +1250,7 @@ MonoBehaviour:
   perlinAmplitude: 100
   trailRenderer: {fileID: 1470424463}
   lString: X
+  lSuffix: --F
   ruleCharacters: 58005900
   ruleStrings:
   - X+YF++YF-FX--FXFX-YF+
@@ -1470,6 +1475,7 @@ MonoBehaviour:
   perlinAmplitude: 0
   trailRenderer: {fileID: 1616074941}
   lString: A
+  lSuffix: 
   ruleCharacters: 4100
   ruleStrings:
   - F+A
@@ -1646,6 +1652,7 @@ MonoBehaviour:
   perlinAmplitude: 100
   trailRenderer: {fileID: 1664163601}
   lString: X
+  lSuffix: --F
   ruleCharacters: 58005900
   ruleStrings:
   - X+YF++YF-FX--FXFX-YF+
@@ -1763,7 +1770,7 @@ Transform:
   m_GameObject: {fileID: 1664163598}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 101.789604, y: 0, z: -640.67523}
+  m_LocalPosition: {x: 98.254074, y: 0, z: -637.1397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1808,6 +1815,7 @@ MonoBehaviour:
   perlinAmplitude: 0
   trailRenderer: {fileID: 1928498147}
   lString: X
+  lSuffix: 
   ruleCharacters: 58004600
   ruleStrings:
   - F[++X][-X]FX

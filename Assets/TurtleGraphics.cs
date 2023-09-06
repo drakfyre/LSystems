@@ -17,6 +17,7 @@ public class TurtleGraphics : MonoBehaviour
     public TrailRenderer trailRenderer = null;
 
     public string lString;
+    public string lSuffix;
     public List<char> ruleCharacters = new List<char>();
     public List<string> ruleStrings = new List<string>();
 
@@ -57,6 +58,7 @@ public class TurtleGraphics : MonoBehaviour
             lSystem.replacementStrings.Add(ruleCharacters[i],ruleStrings[i]);
         }
         lSystem.Iterate(iterations);
+        lSystem.lSystemString += lSuffix;
         Debug.Log(lSystem.lSystemString);
 
         StartCoroutine(Draw());
