@@ -13,20 +13,7 @@ public class LSystem
         string newString = "";
         foreach(char c in lSystemString)
         {
-            bool didReplacement = false;
-            foreach(KeyValuePair<char,string> pair in replacementStrings)
-            {
-                if(c == pair.Key)
-                {
-                    newString += pair.Value;
-                    didReplacement = true;
-                    break;
-                }
-            }
-            if(!didReplacement)
-            {
-                newString += c;
-            }
+            newString += replacementStrings.GetValueOrDefault(c,c.ToString());
         }
         lSystemString = newString;
     }
