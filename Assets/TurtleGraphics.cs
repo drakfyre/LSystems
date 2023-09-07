@@ -168,7 +168,7 @@ public class TurtleGraphics : MonoBehaviour
                     yield return PenUp(); // must be called this way because it may yield a frame inside
                     RestoreState();
                     break;
-                default:
+                default:  // Ignore any other characters
                     break;
             }
 
