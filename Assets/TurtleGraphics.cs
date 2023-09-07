@@ -22,7 +22,7 @@ public class TurtleGraphics : MonoBehaviour
     public string lString;                  // Starting string for LSystem, also known as "Axiom"
     public string lSuffix;                  // Suffix appended to the end of a generated LSystem, for convenience
     public int iterations = 5;              // Number of times to iterate
-    public float timeOutInSeconds = 100.0f; // Timeout per iteration; when timed out the previous iteration will be used
+    public float timeOutInSeconds = 100.0f; // Timeout for generation; when timed out the previous iteration will be used
     public List<char> ruleCharacters = new List<char>();    // List of characters to be replaced
     public List<string> ruleStrings = new List<string>();   // List of strings to replace characters with
 
@@ -99,7 +99,11 @@ public class TurtleGraphics : MonoBehaviour
         stopwatch.Start();
 
         // Generate based on iterations
-        lSystem.Iterate(iterations,timeOutInSeconds);
+        if(!lSystem.Iterate(iterations,timeOutInSeconds))
+        {
+            // If Iterate returns false that means it timed out
+            UnityEngine.Debug.Log("Generation timed out, returning previous iteration");
+        }
 
         // Stop generation timer
         stopwatch.Stop();
