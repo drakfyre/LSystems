@@ -120,7 +120,7 @@ public class TurtleGraphics : MonoBehaviour
         StartCoroutine(Draw());
     }
 
-    // Update is called once per frame
+    // This Coroutine continues running every frame
     IEnumerator Draw()
     {
         // Wait one frame so first update can occur for TrailRenderer
