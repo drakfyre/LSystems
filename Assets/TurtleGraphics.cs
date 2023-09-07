@@ -8,23 +8,28 @@ using static UnityEngine.ParticleSystem;
 
 public class TurtleGraphics : MonoBehaviour
 {
+    [Header("Turtle Movement")]
     public float moveDistance = 1.0f;
     public float moveSpeed = 1.0f;
     public float rotationAmount = 90.0f;
-    public int iterations = 5;
 
+    [Header("Perlin Height")]
     public bool usePerlinHeight = false;
     public float perlinFrequency = 1.0f;
     public float perlinAmplitude = 1.0f;
 
-    public TrailRenderer trailRenderer = null;
-
+    [Header("L-System Path Generation")]
     public string lString;
     public string lSuffix;
     public float timeOutInSeconds = 100.0f;
+    public int iterations = 5;
     public List<char> ruleCharacters = new List<char>();
     public List<string> ruleStrings = new List<string>();
 
+    [Header("Required Component References")]
+    public TrailRenderer trailRenderer = null;
+
+    // Internals
     private LSystem lSystem = new LSystem();
     private int index = 0;
     private struct State
