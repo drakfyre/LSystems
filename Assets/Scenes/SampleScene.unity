@@ -300,7 +300,6 @@ GameObject:
   - component: {fileID: 422789130}
   - component: {fileID: 422789129}
   - component: {fileID: 422789128}
-  - component: {fileID: 422789127}
   m_Layer: 0
   m_Name: GosperCurve2d (2)
   m_TagString: Untagged
@@ -308,20 +307,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &422789127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422789126}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d2fc3125b4d294cb959262bf825971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 100
-  frequency: 0.01
 --- !u!114 &422789128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +376,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 200
+  m_Time: 130
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -1225,7 +1210,6 @@ GameObject:
   - component: {fileID: 1470424464}
   - component: {fileID: 1470424463}
   - component: {fileID: 1470424462}
-  - component: {fileID: 1470424465}
   m_Layer: 0
   m_Name: GosperCurve2d
   m_TagString: Untagged
@@ -1302,7 +1286,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 200
+  m_Time: 130
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -1379,20 +1363,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 75, z: 0}
---- !u!114 &1470424465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470424461}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d2fc3125b4d294cb959262bf825971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 100
-  frequency: 0.01
 --- !u!1 &1485630008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,7 +1585,6 @@ GameObject:
   - component: {fileID: 1664163602}
   - component: {fileID: 1664163601}
   - component: {fileID: 1664163600}
-  - component: {fileID: 1664163599}
   m_Layer: 0
   m_Name: GosperCurve2d (1)
   m_TagString: Untagged
@@ -1623,20 +1592,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1664163599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664163598}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d2fc3125b4d294cb959262bf825971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 100
-  frequency: 0.01
 --- !u!114 &1664163600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1706,7 +1661,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 200
+  m_Time: 130
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3

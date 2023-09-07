@@ -92,17 +92,19 @@ public class TurtleGraphics : MonoBehaviour
                 case 'F':
                     yield return PenDown();
                     Vector3 targetPosition = transform.position + transform.forward * moveDistance;
+
                     if(usePerlinHeight)
                     {
                         targetPosition.y = Mathf.PerlinNoise(targetPosition.x * perlinFrequency, targetPosition.z * perlinFrequency) * perlinAmplitude + startingY;
                     }
-                    while (Vector3.Distance(transform.position, targetPosition) > 0.001f)
+
+                    do
                     {
                         transform.position = Vector3.MoveTowards(transform.position,targetPosition, moveSpeed * Time.deltaTime);
                         yield return null;
                     }
-                    transform.position = targetPosition;
-                    yield return null;
+                    while (transform.position != targetPosition);
+
                     break;
                 case '+':
                     transform.Rotate(0.0f,rotationAmount,0.0f);
@@ -141,11 +143,10 @@ public class TurtleGraphics : MonoBehaviour
                 }
                 case ']':
                 {
-                    PenUp();
+                    yield return PenUp();
                     State newState = stateStack.Pop();
                     transform.position = newState.position;
                     transform.rotation = newState.rotation;
-                    yield return null;
                     break;
                 }
                 default:
