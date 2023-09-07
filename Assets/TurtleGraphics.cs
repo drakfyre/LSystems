@@ -134,21 +134,12 @@ public class TurtleGraphics : MonoBehaviour
                     transform.Rotate(0.0f,180.0f,0.0f);
                     break;
                 case '[':
-                {
-                    State newState;
-                    newState.position = transform.position;
-                    newState.rotation = transform.rotation;
-                    stateStack.Push(newState);
+                    SaveState();
                     break;
-                }
                 case ']':
-                {
                     yield return PenUp();
-                    State newState = stateStack.Pop();
-                    transform.position = newState.position;
-                    transform.rotation = newState.rotation;
+                    RestoreState();
                     break;
-                }
                 default:
                     break;
             }
@@ -165,19 +156,40 @@ public class TurtleGraphics : MonoBehaviour
 
     IEnumerator PenUp()
     {
-        trailRenderer.emitting = false;
-        yield return null;
-        trailRenderer.AddPosition(transform.position);
-        cachedVertexDistance = trailRenderer.minVertexDistance;
-        trailRenderer.minVertexDistance = 1000000.0f;
+        if(trailRenderer.emitting == true)
+        {
+            trailRenderer.emitting = false;
+            yield return null;
+            trailRenderer.AddPosition(transform.position);
+            cachedVertexDistance = trailRenderer.minVertexDistance;
+            trailRenderer.minVertexDistance = 1000000.0f;
+        }
     }
 
     IEnumerator PenDown()
     {
-        trailRenderer.AddPosition(transform.position);
-        yield return null;
-        trailRenderer.minVertexDistance = cachedVertexDistance;
-        trailRenderer.emitting = true;
+        if(trailRenderer.emitting == false)
+        {
+            trailRenderer.AddPosition(transform.position);
+            yield return null;
+            trailRenderer.minVertexDistance = cachedVertexDistance;
+            trailRenderer.emitting = true;
+        }
+    }
+
+    void SaveState()
+    {
+        State newState;
+        newState.position = transform.position;
+        newState.rotation = transform.rotation;
+        stateStack.Push(newState);
+    }
+
+    void RestoreState()
+    {
+        State newState = stateStack.Pop();
+        transform.position = newState.position;
+        transform.rotation = newState.rotation;
     }
 
 }
