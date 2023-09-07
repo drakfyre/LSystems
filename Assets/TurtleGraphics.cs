@@ -23,8 +23,8 @@ public class TurtleGraphics : MonoBehaviour
     public string lSuffix;                  // Suffix appended to the end of a generated LSystem, for convenience
     public int iterations = 5;              // Number of times to iterate
     public float timeOutInSeconds = 100.0f; // Timeout for generation; when timed out the previous iteration will be used
-    public List<char> ruleCharacters = new List<char>();    // List of characters to be replaced
-    public List<string> ruleStrings = new List<string>();   // List of strings to replace characters with
+    public List<char> ruleCharacters = new List<char>();    // List of characters to be replaced each iteration
+    public List<string> ruleStrings = new List<string>();   // List of strings to replace characters with each iteration
 
     [Header("Required Component References")]
     public TrailRenderer trailRenderer = null;  // The TrailRenderer that draws the path; should be attached to this object or a child
