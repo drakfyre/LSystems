@@ -234,6 +234,7 @@ public class TurtleGraphics : MonoBehaviour
         }
     }
 
+    // Save a state to the stack
     void SaveState()
     {
         // Create new state
@@ -247,6 +248,7 @@ public class TurtleGraphics : MonoBehaviour
         stateStack.Push(newState);
     }
 
+    // Restore a state from the stack
     void RestoreState()
     {
         // Pop state from stack (take it off the top of the stack)
