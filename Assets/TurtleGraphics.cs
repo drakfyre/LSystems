@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
+using static UnityEngine.ParticleSystem;
 
 public class TurtleGraphics : MonoBehaviour
 {
@@ -31,7 +33,9 @@ public class TurtleGraphics : MonoBehaviour
         public Quaternion rotation;
     }
     private Stack<State> stateStack = new Stack<State>();
+    private State startingState = new State();
     private float startingY;
+    private float cachedVertexDistance;
 
     void OnValidate()
     {
@@ -46,12 +50,17 @@ public class TurtleGraphics : MonoBehaviour
     {
         startingY = transform.position.y;
 
+        cachedVertexDistance = trailRenderer.minVertexDistance;
+
         if(usePerlinHeight)
         {
             Vector3 newPosition = transform.position;
             newPosition.y = Mathf.PerlinNoise(transform.position.x * perlinFrequency, transform.position.z * perlinFrequency) * perlinAmplitude + startingY;
             transform.position = newPosition;
         }
+
+        startingState.position = transform.position;
+        startingState.rotation = transform.rotation;
 
         lSystem.lSystemString = lString;
         for(int i = 0; i < ruleCharacters.Count; i++)
@@ -74,14 +83,14 @@ public class TurtleGraphics : MonoBehaviour
     // Update is called once per frame
     IEnumerator Draw()
     {
-        yield return null;
-        while(index < lSystem.lSystemString.Length)
+        yield return null;  // So first update can occur for TrailRenderer
+        while(true)
         {
             char c = lSystem.lSystemString[index];
             switch(c)
             {
                 case 'F':
-                    trailRenderer.emitting = true;
+                    PenDown();
                     Vector3 targetPosition = transform.position + transform.forward * moveDistance;
                     if(usePerlinHeight)
                     {
@@ -132,7 +141,7 @@ public class TurtleGraphics : MonoBehaviour
                 }
                 case ']':
                 {
-                    trailRenderer.emitting = false;
+                    PenUp();
                     State newState = stateStack.Pop();
                     transform.position = newState.position;
                     transform.rotation = newState.rotation;
@@ -143,6 +152,29 @@ public class TurtleGraphics : MonoBehaviour
                     break;
             }
             index++;
+            if(index >= lSystem.lSystemString.Length)
+            {
+                index = 0;
+                PenUp();
+                yield return null;
+                //yield return new WaitForSeconds(2.0f);
+                //transform.position = startingState.position;
+                //transform.rotation = startingState.rotation;
+                //yield return new WaitForSeconds(2.0f);
+            }
         }
     }
+    void PenUp()
+    {
+        trailRenderer.emitting = false;
+        cachedVertexDistance = trailRenderer.minVertexDistance;
+        trailRenderer.minVertexDistance = 1000000.0f;
+    }
+
+    void PenDown()
+    {
+        trailRenderer.minVertexDistance = cachedVertexDistance;
+        trailRenderer.emitting = true;
+    }
+
 }
