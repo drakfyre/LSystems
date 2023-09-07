@@ -90,7 +90,7 @@ public class TurtleGraphics : MonoBehaviour
             switch(c)
             {
                 case 'F':
-                    PenDown();
+                    yield return PenDown();
                     Vector3 targetPosition = transform.position + transform.forward * moveDistance;
                     if(usePerlinHeight)
                     {
@@ -155,24 +155,26 @@ public class TurtleGraphics : MonoBehaviour
             if(index >= lSystem.lSystemString.Length)
             {
                 index = 0;
-                PenUp();
-                yield return null;
-                //yield return new WaitForSeconds(2.0f);
-                //transform.position = startingState.position;
-                //transform.rotation = startingState.rotation;
-                //yield return new WaitForSeconds(2.0f);
+                yield return PenUp();
+                transform.position = startingState.position;
+                transform.rotation = startingState.rotation;
             }
         }
     }
-    void PenUp()
+
+    IEnumerator PenUp()
     {
         trailRenderer.emitting = false;
+        yield return null;
+        trailRenderer.AddPosition(transform.position);
         cachedVertexDistance = trailRenderer.minVertexDistance;
         trailRenderer.minVertexDistance = 1000000.0f;
     }
 
-    void PenDown()
+    IEnumerator PenDown()
     {
+        trailRenderer.AddPosition(transform.position);
+        yield return null;
         trailRenderer.minVertexDistance = cachedVertexDistance;
         trailRenderer.emitting = true;
     }
