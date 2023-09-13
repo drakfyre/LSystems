@@ -9,9 +9,10 @@ using static UnityEngine.ParticleSystem;
 public class TurtleGraphics : MonoBehaviour
 {
     [Header("Turtle Movement")]
-    public float moveDistance = 1.0f;       // Distance to the next node on a Forward command
-    public float moveSpeed = 1.0f;          // Distance the turtle moves per second
-    public float rotationAmount = 90.0f;    // Rotation amount on a rotation command
+    public float moveDistance = 1.0f;               // Distance to the next node on a Forward command
+    public float moveSpeed = 1.0f;                  // Distance the turtle moves per second
+    public float rotationAmount = 90.0f;            // Rotation amount on a rotation command
+    public LoopType loopType = LoopType.Continue;   // How to behave at the end of the instructions (defined below)
 
     [Header("Perlin Height")]
     public bool usePerlinHeight = false;    // Whether or not to offset the height based on Perlin noise
@@ -28,6 +29,13 @@ public class TurtleGraphics : MonoBehaviour
 
     [Header("Required Component References")]
     public TrailRenderer trailRenderer = null;  // The TrailRenderer that draws the path; should be attached to this object or a child
+
+    public enum LoopType
+    {
+        Continue,   // Follow the instructions again from the final position
+        Restart,    // Follow the instructions again from the starting position
+        Stop        // Stop moving
+    }
 
     // Internals
     // Our LSystem instance
@@ -185,12 +193,18 @@ public class TurtleGraphics : MonoBehaviour
                 // Reset index
                 index = 0;
 
-                // Stop drawing
-                yield return PenUp(); // must be called this way because it may yield a frame inside
+                if(loopType == LoopType.Restart)
+                {   // Stop drawing
+                    yield return PenUp(); // must be called this way because it may yield a frame inside
 
-                // Reset position to startingState
-                transform.position = startingState.position;
-                transform.rotation = startingState.rotation;
+                    // Reset position to startingState
+                    transform.position = startingState.position;
+                    transform.rotation = startingState.rotation;
+                }
+                else if(loopType == LoopType.Stop)
+                {
+                    moveSpeed = 0.0f;
+                }
             }
         }
     }
