@@ -9,15 +9,24 @@ public class LSystem
     public string lSystemString;
     public Dictionary<char,string> replacementStrings = new Dictionary<char,string>();
 
-    public bool Iterate(int iterations = 1, float timeOutInSeconds = -1.0f)
+    public bool Iterate(ref int iterations, float timeOutInSeconds = -1.0f)
     {
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
         for(int i = 0; i < iterations; i++)
         {
-            if(!Iterate(timeOutInSeconds - (float)stopwatch.Elapsed.TotalSeconds))
+            if(timeOutInSeconds >= 0.0f)
             {
-                return false;
+                float timeRemaining = Mathf.Clamp(timeOutInSeconds - (float)stopwatch.Elapsed.TotalSeconds,0.0f,Mathf.Infinity);
+                if(!Iterate(timeRemaining))
+                {
+                    iterations = i;
+                    return false;
+                }
+            }
+            else
+            {
+                Iterate(timeOutInSeconds);
             }
         }
 
@@ -32,7 +41,8 @@ public class LSystem
         foreach(char c in lSystemString)
         {
             newString += replacementStrings.GetValueOrDefault(c,c.ToString());
-            if(timeOutInSeconds > 0 && stopwatch.Elapsed.TotalSeconds > timeOutInSeconds)
+
+            if(timeOutInSeconds >= 0 && stopwatch.Elapsed.TotalSeconds > timeOutInSeconds)
             { 
                 return false;
             }

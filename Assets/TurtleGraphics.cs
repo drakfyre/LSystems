@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using static UnityEditor.PlayerSettings;
 using static UnityEngine.ParticleSystem;
 
 public class TurtleGraphics : MonoBehaviour
 {
+    // Public Variables
     [Header("Turtle Movement")]
     public float moveDistance = 1.0f;               // Distance to the next node on a Forward command
     public float moveSpeed = 1.0f;                  // Distance the turtle moves per second
     public float rotationAmount = 90.0f;            // Rotation amount on a rotation command
     public LoopType loopType = LoopType.Continue;   // How to behave at the end of the instructions (defined below)
 
-    [Header("Perlin Height")]
-    public bool usePerlinHeight = false;    // Whether or not to offset the height based on Perlin noise
-    public float perlinFrequency = 1.0f;    // Frequency adjustment of the Perlin noise (higher makes narrower mountains/valleys)
-    public float perlinAmplitude = 1.0f;    // Amplitude adjustment of the Perlin noise (higher makes taller mountains and deeper valleys)
+    [Header("Height Options")]
+    public HeightType heightType;           // Type of height 
+    [FormerlySerializedAs("perlinFrequency")]
+    public float frequency = 1.0f;    // Frequency adjustment of the sine wave / Perlin noise (higher makes narrower mountains/valleys in Perlin)
+    [FormerlySerializedAs("perlinAmplitude")]
+    public float amplitude = 1.0f;    // Amplitude adjustment of the sine wave / Perlin noise (higher makes taller mountains and deeper valleys in Perlin)
 
     [Header("L-System Path Generation")]
     public string lString;                  // Starting string for LSystem, also known as "Axiom"
@@ -30,11 +34,19 @@ public class TurtleGraphics : MonoBehaviour
     [Header("Required Component References")]
     public TrailRenderer trailRenderer = null;  // The TrailRenderer that draws the path; should be attached to this object or a child
 
+    // Definitions
     public enum LoopType
     {
         Continue,   // Follow the instructions again from the final position
         Restart,    // Follow the instructions again from the starting position
         Stop        // Stop moving
+    }
+
+    public enum HeightType
+    {
+        None,       // Don't adjust height
+        Sine,       // Height based on sine wave
+        Perlin      // Height based on perlin noise
     }
 
     // Internals
@@ -83,11 +95,11 @@ public class TurtleGraphics : MonoBehaviour
         // Save current minVertexDistance just-in-case (So that PenUp doesn't HAVE to be called first)
         cachedVertexDistance = trailRenderer.minVertexDistance;
 
-        if(usePerlinHeight)
+        if(heightType == HeightType.Perlin)
         {
             // Set initial height based on Perlin noise at current position
             Vector3 newPosition = transform.position;
-            newPosition.y = Mathf.PerlinNoise(transform.position.x * perlinFrequency, transform.position.z * perlinFrequency) * perlinAmplitude + startingY;
+            newPosition.y = Mathf.PerlinNoise(transform.position.x * frequency, transform.position.z * frequency) * amplitude + startingY;
             transform.position = newPosition;
         }
 
@@ -107,10 +119,10 @@ public class TurtleGraphics : MonoBehaviour
         stopwatch.Start();
 
         // Generate based on iterations
-        if(!lSystem.Iterate(iterations,timeOutInSeconds))
+        if(!lSystem.Iterate(ref iterations,timeOutInSeconds))
         {
             // If Iterate returns false that means it timed out
-            UnityEngine.Debug.Log("Generation timed out, returning previous iteration");
+            UnityEngine.Debug.Log(string.Format("Generation timed out, returning previous iteration ({0})",iterations));
         }
 
         // Stop generation timer
@@ -284,10 +296,15 @@ public class TurtleGraphics : MonoBehaviour
 
         // Calculate target position based on moveDistance
         Vector3 targetPosition = transform.position + transform.forward * moveDistance;
-        if(usePerlinHeight)
+        if(heightType == HeightType.Perlin)
         {
             // Adjust height based on Perlin noise at current position
-            targetPosition.y = Mathf.PerlinNoise(targetPosition.x * perlinFrequency, targetPosition.z * perlinFrequency) * perlinAmplitude + startingY;
+            targetPosition.y = Mathf.PerlinNoise(targetPosition.x * frequency, targetPosition.z * frequency) * amplitude + startingY;
+        }
+        else if(heightType == HeightType.Sine)
+        {
+            // Adjust height based on sine wave at current time
+            targetPosition.y = Mathf.Sin(Time.time * frequency) * amplitude + startingY;
         }
 
         // Move towards the target till you are there

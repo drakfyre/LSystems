@@ -275,13 +275,13 @@ MonoBehaviour:
   moveDistance: 1
   moveSpeed: 10
   rotationAmount: 90
-  iterations: 5
-  usePerlinHeight: 0
-  perlinFrequency: 0
-  perlinAmplitude: 0
-  trailRenderer: {fileID: 148852885}
+  loopType: 0
+  heightType: 0
+  frequency: 0
+  amplitude: 0
   lString: A
   lSuffix: 
+  iterations: 5
   timeOutInSeconds: 100
   ruleCharacters: 4100420043004400
   ruleStrings:
@@ -289,6 +289,7 @@ MonoBehaviour:
   - A&F^CFB^F^D^^-F-D^|F^B|FC^F^A//
   - '|D^|F^B-F+C^F^A&&FA&F^C+F+B^F^D//'
   - '|CFB-F+B|FA&F^A&&FB-F+B|FC//'
+  trailRenderer: {fileID: 148852885}
 --- !u!1 &422789126
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,18 +323,19 @@ MonoBehaviour:
   moveDistance: 5
   moveSpeed: 100000
   rotationAmount: 60
-  iterations: 5
-  usePerlinHeight: 1
-  perlinFrequency: 0.01
-  perlinAmplitude: 100
-  trailRenderer: {fileID: 422789129}
+  loopType: 0
+  heightType: 2
+  frequency: 0.01
+  amplitude: 100
   lString: X
   lSuffix: --F
+  iterations: 5
   timeOutInSeconds: -1
   ruleCharacters: 58005900
   ruleStrings:
   - X+YF++YF-FX--FXFX-YF+
   - '-FX+YFYF++YF+FX--FX-Y '
+  trailRenderer: {fileID: 422789129}
 --- !u!96 &422789129
 TrailRenderer:
   serializedVersion: 3
@@ -720,18 +722,19 @@ MonoBehaviour:
   moveDistance: 1
   moveSpeed: 1
   rotationAmount: 90
-  iterations: 5
-  usePerlinHeight: 0
-  perlinFrequency: 0
-  perlinAmplitude: 0
-  trailRenderer: {fileID: 895898791}
+  loopType: 0
+  heightType: 0
+  frequency: 0
+  amplitude: 0
   lString: A
   lSuffix: 
+  iterations: 5
   timeOutInSeconds: 100
   ruleCharacters: 41004200
   ruleStrings:
   - +BF-AFA-FB+
   - -AF+BFB+FA-
+  trailRenderer: {fileID: 895898791}
 --- !u!96 &895898791
 TrailRenderer:
   serializedVersion: 3
@@ -1068,18 +1071,19 @@ MonoBehaviour:
   moveDistance: 5
   moveSpeed: 100
   rotationAmount: 90
-  iterations: 7
-  usePerlinHeight: 1
-  perlinFrequency: 0.01
-  perlinAmplitude: 100
-  trailRenderer: {fileID: 1379621512}
+  loopType: 0
+  heightType: 0
+  frequency: 0.01
+  amplitude: 100
   lString: A
   lSuffix: 
+  iterations: 7
   timeOutInSeconds: 100
   ruleCharacters: 41004200
   ruleStrings:
   - +BF-AFA-FB+
   - -AF+BFB+FA-
+  trailRenderer: {fileID: 1379621512}
 --- !u!96 &1379621512
 TrailRenderer:
   serializedVersion: 3
@@ -1232,18 +1236,19 @@ MonoBehaviour:
   moveDistance: 5
   moveSpeed: 100000
   rotationAmount: 60
-  iterations: 5
-  usePerlinHeight: 1
-  perlinFrequency: 0.01
-  perlinAmplitude: 100
-  trailRenderer: {fileID: 1470424463}
+  loopType: 0
+  heightType: 2
+  frequency: 0.01
+  amplitude: 100
   lString: X
   lSuffix: --F
-  timeOutInSeconds: -1
+  iterations: 5
+  timeOutInSeconds: 10
   ruleCharacters: 58005900
   ruleStrings:
   - X+YF++YF-FX--FXFX-YF+
   - '-FX+YFYF++YF+FX--FX-Y '
+  trailRenderer: {fileID: 1470424463}
 --- !u!96 &1470424463
 TrailRenderer:
   serializedVersion: 3
@@ -1444,17 +1449,18 @@ MonoBehaviour:
   moveDistance: 1
   moveSpeed: 1
   rotationAmount: 1
-  iterations: 360
-  usePerlinHeight: 0
-  perlinFrequency: 0
-  perlinAmplitude: 0
-  trailRenderer: {fileID: 1616074941}
+  loopType: 0
+  heightType: 0
+  frequency: 0
+  amplitude: 0
   lString: A
   lSuffix: 
+  iterations: 360
   timeOutInSeconds: 100
   ruleCharacters: 4100
   ruleStrings:
   - F+A
+  trailRenderer: {fileID: 1616074941}
 --- !u!96 &1616074941
 TrailRenderer:
   serializedVersion: 3
@@ -1607,18 +1613,19 @@ MonoBehaviour:
   moveDistance: 5
   moveSpeed: 100000
   rotationAmount: 60
-  iterations: 5
-  usePerlinHeight: 1
-  perlinFrequency: 0.01
-  perlinAmplitude: 100
-  trailRenderer: {fileID: 1664163601}
+  loopType: 0
+  heightType: 2
+  frequency: 0.01
+  amplitude: 100
   lString: X
   lSuffix: --F
+  iterations: 5
   timeOutInSeconds: -1
   ruleCharacters: 58005900
   ruleStrings:
   - X+YF++YF-FX--FXFX-YF+
   - '-FX+YFYF++YF+FX--FX-Y '
+  trailRenderer: {fileID: 1664163601}
 --- !u!96 &1664163601
 TrailRenderer:
   serializedVersion: 3
@@ -1771,18 +1778,19 @@ MonoBehaviour:
   moveDistance: 1
   moveSpeed: 100
   rotationAmount: 25.7
-  iterations: 8
-  usePerlinHeight: 0
-  perlinFrequency: 0
-  perlinAmplitude: 0
-  trailRenderer: {fileID: 1928498147}
+  loopType: 0
+  heightType: 0
+  frequency: 0
+  amplitude: 0
   lString: X
   lSuffix: 
+  iterations: 8
   timeOutInSeconds: 100
   ruleCharacters: 58004600
   ruleStrings:
   - F[++X][-X]FX
   - FF
+  trailRenderer: {fileID: 1928498147}
 --- !u!96 &1928498147
 TrailRenderer:
   serializedVersion: 3
